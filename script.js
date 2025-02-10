@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const spinWheel = document.getElementById("spin-wheel");
     const spinBtn = document.getElementById("spin");
     const spinResult = document.getElementById("spin-result");
-    const leaderboardSection = document.getElementById("leaderboard");
+    const leaderboard = document.getElementById("leaderboard");
 
     // Flash Screen Timeout
     setTimeout(() => {
@@ -56,21 +56,21 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Populate Leaderboard with Avatars
+    // Populate Leaderboard
     const players = [
-        { name: "Player1", score: 1200, avatar: "assets/images/avatar1.png" },
-        { name: "Player2", score: 1100, avatar: "assets/images/avatar2.png" },
-        { name: "Player3", score: 1050, avatar: "assets/images/avatar3.png" }
+        { name: "CyberWolf", coins: 5000, avatar: "assets/images/avatar1.png" },
+        { name: "NeonRider", coins: 4500, avatar: "assets/images/avatar2.png" },
+        { name: "Glitch", coins: 4000, avatar: "assets/images/avatar3.png" }
     ];
 
     players.forEach(player => {
         let playerElement = document.createElement("div");
-        playerElement.classList.add("leaderboard-item");
+        playerElement.classList.add("leaderboard-entry");
         playerElement.innerHTML = `
-            <img src="${player.avatar}" alt="${player.name}" class="avatar">
+            <img src="${player.avatar}" alt="Avatar" class="leaderboard-avatar">
             <span>${player.name}</span>
-            <span>${player.score} pts</span>
+            <span>${player.coins} Coins</span>
         `;
-        leaderboardSection.appendChild(playerElement);
+        leaderboard.appendChild(playerElement);
     });
 });
