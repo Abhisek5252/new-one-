@@ -55,3 +55,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const spinBtn = document.getElementById("spin");
+    const spinResult = document.getElementById("spin-result");
+
+    spinBtn.addEventListener("click", () => {
+        let prizes = [150, 200, 250, 300, 350, 400, "JACKPOT"]; 
+        let prize = prizes[Math.floor(Math.random() * prizes.length)];
+        
+        if (prize === "JACKPOT") {
+            spinResult.textContent = "🎉 JACKPOT! You won 150 MetaVerse Tokens!";
+        } else {
+            spinResult.textContent = `🎊 You won ${prize} MetaRush Coins!`;
+        }
+    });
+});
