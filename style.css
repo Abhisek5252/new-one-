@@ -1,70 +1,128 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #111;
-    color: #0ff;
-    text-align: center;
+/* Reset default styles */
+body, h1, h2, h3, p, ul, li, button {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
-.flash-screen {
+body {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Flash Screen */
+#flash-screen {
     position: fixed;
     width: 100%;
     height: 100vh;
-    background-color: black;
+    background: url('assets/images/flash-screen.png') no-repeat center center;
+    background-size: cover;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    z-index: 10;
 }
 
-.hidden {
+/* Main Interface */
+#main-container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding-top: 50px;
+}
+
+/* Daily Login Bonus Section */
+#daily-bonus {
+    background: url('assets/images/daily-bonus.png') no-repeat center center;
+    background-size: contain;
+    width: 90%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#claim-bonus {
+    background: #ff007f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Wallet Section */
+#wallet {
+    background: url('assets/images/wallet.png') no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    padding: 20px;
+}
+
+#coins, #tokens {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#convert {
+    margin-top: 10px;
+    background: #00ffcc;
+    color: black;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Spin Wheel */
+#spin-wheel {
+    background: url('assets/images/spin-wheel.png') no-repeat center center;
+    background-size: contain;
+    width: 90%;
+    height: 300px;
     display: none;
 }
 
-header {
-    background-color: #222;
-    padding: 15px;
-    font-size: 24px;
-}
-
-section {
-    margin: 20px;
-    padding: 15px;
-    background: rgba(0, 255, 255, 0.1);
-    border-radius: 10px;
-}
-
-button {
-    background-color: #0ff;
-    color: #111;
+#spin {
+    background: #ffcc00;
+    color: black;
+    padding: 10px 15px;
     border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-top: 10px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
-button:hover {
-    background-color: #0cc;
-}
-
-nav {
+/* Bottom Navigation */
+.bottom-nav {
     position: fixed;
     bottom: 0;
     width: 100%;
     background: #222;
     display: flex;
     justify-content: space-around;
-    padding: 10px 0;
+    padding: 15px 0;
 }
 
-nav button {
+.bottom-nav button {
     background: transparent;
-    color: #0ff;
+    color: white;
     border: none;
     font-size: 16px;
+    cursor: pointer;
 }
 
-nav button:hover {
-    color: #0cc;
+.bottom-nav img {
+    width: 30px;
+    height: 30px;
+}
+
+.hidden {
+    display: none;
 }
