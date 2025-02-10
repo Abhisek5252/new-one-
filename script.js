@@ -1,21 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
     const flashScreen = document.getElementById("flash-screen");
-    const mainContainer = document.getElementById("main-container");
+    const mainInterface = document.getElementById("main-interface");
     const claimBonusBtn = document.getElementById("claim-bonus");
     const bonusMessage = document.getElementById("bonus-message");
-    const convertBtn = document.getElementById("convert");
     const coinsDisplay = document.getElementById("coins");
     const tokensDisplay = document.getElementById("tokens");
-    const playSpinBtn = document.getElementById("play-spin");
+    const convertBtn = document.getElementById("convert");
     const spinWheel = document.getElementById("spin-wheel");
     const spinBtn = document.getElementById("spin");
     const spinResult = document.getElementById("spin-result");
-    const leaderboard = document.getElementById("leaderboard");
+    const sections = document.querySelectorAll(".section");
+    const navButtons = document.querySelectorAll(".nav-button");
 
     // Flash Screen Timeout
     setTimeout(() => {
         flashScreen.style.display = "none";
-        mainContainer.classList.remove("hidden");
+        mainInterface.style.display = "block";
     }, 3000);
 
     // Daily Bonus Claim
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         claimBonusBtn.disabled = true;
     });
 
-    // Wallet Conversion
+    // Wallet Conversion (100 Coins = 1 Token)
     convertBtn.addEventListener("click", () => {
         let coins = parseInt(coinsDisplay.textContent);
         if (coins >= 100) {
@@ -37,12 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Show Spin Wheel
-    playSpinBtn.addEventListener("click", () => {
-        spinWheel.classList.toggle("hidden");
-    });
-
-    // Spin Wheel Functionality
+    // Spin Wheel Game
     spinBtn.addEventListener("click", () => {
         let prizes = [150, 200, 250, 300, 350, 400, "JACKPOT"]; 
         let prize = prizes[Math.floor(Math.random() * prizes.length)];
@@ -56,17 +51,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Leaderboard Avatar Integration
-    let players = [
-        { name: "Player1", score: 1200, avatar: "assets/images/avatar1.png" },
-        { name: "Player2", score: 1100, avatar: "assets/images/avatar2.png" },
-        { name: "Player3", score: 1000, avatar: "assets/images/avatar3.png" }
-    ];
-
-    players.forEach(player => {
-        let entry = document.createElement("div");
-        entry.classList.add("leaderboard-entry");
-        entry.innerHTML = `<img src='${player.avatar}' class='avatar'> <span>${player.name} - ${player.score}</span>`;
-        leaderboard.appendChild(entry);
+    // Bottom Navigation Handling
+    navButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            sections.forEach((section) => section.classList.add("hidden"));
+            document.getElementById(button.dataset.target).classList.remove("hidden");
+        });
     });
 });
