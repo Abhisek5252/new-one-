@@ -10,14 +10,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const spinWheel = document.getElementById("spin-wheel");
     const spinBtn = document.getElementById("spin");
     const spinResult = document.getElementById("spin-result");
-    const leaderboard = document.getElementById("leaderboard");
-    
+    const leaderboardSection = document.getElementById("leaderboard");
+
     // Flash Screen Timeout
     setTimeout(() => {
         flashScreen.style.display = "none";
         mainContainer.classList.remove("hidden");
     }, 3000);
-    
+
     // Daily Bonus Claim
     claimBonusBtn.addEventListener("click", () => {
         let bonus = Math.floor(Math.random() * 100) + 50;
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         bonusMessage.textContent = `You received ${bonus} MetaRush Coins!`;
         claimBonusBtn.disabled = true;
     });
-    
+
     // Wallet Conversion
     convertBtn.addEventListener("click", () => {
         let coins = parseInt(coinsDisplay.textContent);
@@ -36,12 +36,12 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Not enough MetaRush Coins!");
         }
     });
-    
+
     // Show Spin Wheel
     playSpinBtn.addEventListener("click", () => {
         spinWheel.classList.toggle("hidden");
     });
-    
+
     // Spin Wheel Functionality
     spinBtn.addEventListener("click", () => {
         let prizes = [150, 200, 250, 300, 350, 400, "JACKPOT"]; 
@@ -56,21 +56,21 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Leaderboard with Avatar Images
+    // Populate Leaderboard with Avatars
     const players = [
-        { name: "Player1", score: 5000, avatar: "assets/images/avatar1.png" },
-        { name: "Player2", score: 4500, avatar: "assets/images/avatar2.png" },
-        { name: "Player3", score: 4000, avatar: "assets/images/avatar3.png" }
+        { name: "Player1", score: 1200, avatar: "assets/images/avatar1.png" },
+        { name: "Player2", score: 1100, avatar: "assets/images/avatar2.png" },
+        { name: "Player3", score: 1050, avatar: "assets/images/avatar3.png" }
     ];
-    
+
     players.forEach(player => {
-        let playerEntry = document.createElement("div");
-        playerEntry.classList.add("leaderboard-entry");
-        playerEntry.innerHTML = `
-            <img src="${player.avatar}" alt="Avatar" class="leaderboard-avatar">
-            <span class="leaderboard-name">${player.name}</span>
-            <span class="leaderboard-score">${player.score}</span>
+        let playerElement = document.createElement("div");
+        playerElement.classList.add("leaderboard-item");
+        playerElement.innerHTML = `
+            <img src="${player.avatar}" alt="${player.name}" class="avatar">
+            <span>${player.name}</span>
+            <span>${player.score} pts</span>
         `;
-        leaderboard.appendChild(playerEntry);
+        leaderboardSection.appendChild(playerElement);
     });
 });
