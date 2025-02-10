@@ -10,13 +10,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const spinWheel = document.getElementById("spin-wheel");
     const spinBtn = document.getElementById("spin");
     const spinResult = document.getElementById("spin-result");
-
+    const leaderboard = document.getElementById("leaderboard");
+    
     // Flash Screen Timeout
     setTimeout(() => {
         flashScreen.style.display = "none";
         mainContainer.classList.remove("hidden");
     }, 3000);
-
+    
     // Daily Bonus Claim
     claimBonusBtn.addEventListener("click", () => {
         let bonus = Math.floor(Math.random() * 100) + 50;
@@ -24,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         bonusMessage.textContent = `You received ${bonus} MetaRush Coins!`;
         claimBonusBtn.disabled = true;
     });
-
+    
     // Wallet Conversion
     convertBtn.addEventListener("click", () => {
         let coins = parseInt(coinsDisplay.textContent);
@@ -35,12 +36,12 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Not enough MetaRush Coins!");
         }
     });
-
+    
     // Show Spin Wheel
     playSpinBtn.addEventListener("click", () => {
         spinWheel.classList.toggle("hidden");
     });
-
+    
     // Spin Wheel Functionality
     spinBtn.addEventListener("click", () => {
         let prizes = [150, 200, 250, 300, 350, 400, "JACKPOT"]; 
@@ -54,19 +55,22 @@ document.addEventListener("DOMContentLoaded", () => {
             coinsDisplay.textContent = parseInt(coinsDisplay.textContent) + prize;
         }
     });
-});
-document.addEventListener("DOMContentLoaded", () => {
-    const spinBtn = document.getElementById("spin");
-    const spinResult = document.getElementById("spin-result");
 
-    spinBtn.addEventListener("click", () => {
-        let prizes = [150, 200, 250, 300, 350, 400, "JACKPOT"]; 
-        let prize = prizes[Math.floor(Math.random() * prizes.length)];
-        
-        if (prize === "JACKPOT") {
-            spinResult.textContent = "🎉 JACKPOT! You won 150 MetaVerse Tokens!";
-        } else {
-            spinResult.textContent = `🎊 You won ${prize} MetaRush Coins!`;
-        }
+    // Leaderboard with Avatar Images
+    const players = [
+        { name: "Player1", score: 5000, avatar: "assets/images/avatar1.png" },
+        { name: "Player2", score: 4500, avatar: "assets/images/avatar2.png" },
+        { name: "Player3", score: 4000, avatar: "assets/images/avatar3.png" }
+    ];
+    
+    players.forEach(player => {
+        let playerEntry = document.createElement("div");
+        playerEntry.classList.add("leaderboard-entry");
+        playerEntry.innerHTML = `
+            <img src="${player.avatar}" alt="Avatar" class="leaderboard-avatar">
+            <span class="leaderboard-name">${player.name}</span>
+            <span class="leaderboard-score">${player.score}</span>
+        `;
+        leaderboard.appendChild(playerEntry);
     });
 });
