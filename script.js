@@ -56,21 +56,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Populate Leaderboard
-    const players = [
-        { name: "CyberWolf", coins: 5000, avatar: "assets/images/avatar1.png" },
-        { name: "NeonRider", coins: 4500, avatar: "assets/images/avatar2.png" },
-        { name: "Glitch", coins: 4000, avatar: "assets/images/avatar3.png" }
+    // Leaderboard Avatar Integration
+    let players = [
+        { name: "Player1", score: 1200, avatar: "assets/images/avatar1.png" },
+        { name: "Player2", score: 1100, avatar: "assets/images/avatar2.png" },
+        { name: "Player3", score: 1000, avatar: "assets/images/avatar3.png" }
     ];
 
     players.forEach(player => {
-        let playerElement = document.createElement("div");
-        playerElement.classList.add("leaderboard-entry");
-        playerElement.innerHTML = `
-            <img src="${player.avatar}" alt="Avatar" class="leaderboard-avatar">
-            <span>${player.name}</span>
-            <span>${player.coins} Coins</span>
-        `;
-        leaderboard.appendChild(playerElement);
+        let entry = document.createElement("div");
+        entry.classList.add("leaderboard-entry");
+        entry.innerHTML = `<img src='${player.avatar}' class='avatar'> <span>${player.name} - ${player.score}</span>`;
+        leaderboard.appendChild(entry);
     });
 });
