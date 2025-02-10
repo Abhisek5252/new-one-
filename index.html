@@ -3,52 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metaverse</title>
-    <link rel="stylesheet" href="style.css">
+    <title>MetaRush Cyberpunk</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="flash-screen" class="flash-screen">
-        <img src="assets/images/splash.png" alt="Loading...">
+        <img src="assets/images/flash_screen.png" alt="Flash Screen">
     </div>
 
     <div id="main-container" class="hidden">
-        <header>
-            <h1>MetaRush Cyberpunk</h1>
-        </header>
-
-        <section id="daily-bonus">
-            <button id="claim-bonus">Claim Daily Bonus</button>
+        <div class="daily-login-bonus">
+            <img src="assets/images/daily_bonus.png" alt="Daily Bonus">
+            <button id="claim-bonus">Claim</button>
             <p id="bonus-message"></p>
-        </section>
-
-        <section id="wallet">
+        </div>
+        
+        <div class="wallet-section">
             <h2>Wallet</h2>
-            <p>MetaRush Coins: <span id="coins">1000</span></p>
-            <p>MetaVerse Tokens: <span id="tokens">10</span></p>
-            <button id="convert">Convert 100 Coins → 1 Token</button>
-        </section>
-
-        <section id="games">
-            <h2>Games</h2>
+            <p>MetaRush Coins: <span id="coins">0</span></p>
+            <p>MetaVerse Tokens: <span id="tokens">0</span></p>
+            <button id="convert">Convert to Tokens</button>
+        </div>
+        
+        <div class="games-section">
             <button id="play-spin">Play Spin Wheel</button>
             <div id="spin-wheel" class="hidden">
+                <img src="assets/images/spin_wheel.png" alt="Spin Wheel">
                 <button id="spin">Spin</button>
                 <p id="spin-result"></p>
             </div>
-        </section>
+        </div>
 
-        <section id="leaderboard">
-            <h2>Leaderboard</h2>
-        </section>
-
-        <nav>
+        <div class="bottom-menu">
             <button>Wallet</button>
             <button>Airdrop</button>
-            <button>Task</button>
+            <button>Tasks</button>
             <button>Games</button>
-        </nav>
+        </div>
     </div>
-
+    
     <script src="script.js"></script>
 </body>
 </html>
+
+/* CSS STYLES */
+body {
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: #fff;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.flash-screen {
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.daily-login-bonus img {
+    width: 200px;
+}
+
+.bottom-menu {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.bottom-menu button {
+    background: none;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
