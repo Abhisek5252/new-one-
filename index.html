@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaRush Cyberpunk</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <!-- Flash Screen -->
+    <div id="flash-screen" class="fullscreen">
+        <img src="assets/flashscreen.png" alt="Flash Screen">
+    </div>
+
+    <!-- Main Container -->
+    <div id="main-container" class="hidden">
+        
+        <!-- Daily Login Bonus (Main Highlight) -->
+        <section id="daily-bonus" class="cyberpunk-section">
+            <h2>Daily Login Bonus</h2>
+            <img src="assets/cyberpunk-car.png" alt="Cyberpunk Car" class="highlighted">
+            <button id="claim-bonus">Claim Bonus</button>
+            <p id="bonus-message"></p>
+        </section>
+
+        <!-- Wallet Section -->
+        <section id="wallet" class="cyberpunk-section">
+            <h2>Wallet</h2>
+            <p>MetaRush Coins: <span id="coins">1000</span></p>
+            <p>MetaVerse Tokens: <span id="tokens">10</span></p>
+            <button id="convert">Convert 100 MRC → 1 MVT</button>
+        </section>
+
+        <!-- Games Section (Spin Wheel) -->
+        <section id="games" class="cyberpunk-section">
+            <h2>Games</h2>
+            <button id="play-spin">Spin Wheel</button>
+            <div id="spin-wheel" class="hidden">
+                <img src="assets/spin-wheel.png" alt="Spin Wheel">
+                <button id="spin">SPIN</button>
+                <p id="spin-result"></p>
+            </div>
+        </section>
+
+        <!-- Leaderboard -->
+        <section id="leaderboard" class="cyberpunk-section">
+            <h2>Leaderboard</h2>
+            <ul id="leaderboard-list">
+                <li>1. Player1 - 5000 MRC</li>
+                <li>2. Player2 - 4500 MRC</li>
+                <li>3. Player3 - 4000 MRC</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
