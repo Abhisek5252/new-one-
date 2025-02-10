@@ -3,54 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MetaVerse:A new Era</title>
+    <title>MetaRush Cyberpunk</title>
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
 </head>
 <body>
-    <!-- Flash Screen -->
-    <div id="flash-screen" class="fullscreen">
-        <img src="assets/images/first.png.webp" alt="Flash Screen">
+    <div id="flash-screen" class="flash-screen">
+        <img src="assets/images/splash.png" alt="Loading...">
     </div>
 
-    <!-- Main Container -->
     <div id="main-container" class="hidden">
-        
-        <!-- Daily Login Bonus (Main Highlight) -->
-        <section id="daily-bonus" class="cyberpunk-section">
-            <h2>Daily Login Bonus</h2>
-            <img src="assets/images/second.png.webp" alt="Cyberpunk Car" class="highlighted">
-            <button id="claim-bonus">Claim Bonus</button>
+        <header>
+            <h1>MetaRush Cyberpunk</h1>
+        </header>
+
+        <section id="daily-bonus">
+            <button id="claim-bonus">Claim Daily Bonus</button>
             <p id="bonus-message"></p>
         </section>
 
-        <!-- Wallet Section -->
-        <section id="wallet" class="cyberpunk-section">
+        <section id="wallet">
             <h2>Wallet</h2>
-             <img src="assets/images/wallet.png" alt="Cyberpunk Car" class="highlighted">
             <p>MetaRush Coins: <span id="coins">1000</span></p>
             <p>MetaVerse Tokens: <span id="tokens">10</span></p>
-            <button id="convert">Convert 100 MRC → 1 MVT</button>
+            <button id="convert">Convert 100 Coins → 1 Token</button>
         </section>
 
-        <!-- Games Section (Spin Wheel) -->
-        <section id="games" class="cyberpunk-section">
+        <section id="games">
             <h2>Games</h2>
-            <button id="play-spin">Spin Wheel</button>
+            <button id="play-spin">Play Spin Wheel</button>
             <div id="spin-wheel" class="hidden">
-                <img src="assets/images/third.png.webp" alt="Spin Wheel">
-                <button id="spin">SPIN</button>
+                <button id="spin">Spin</button>
                 <p id="spin-result"></p>
             </div>
         </section>
 
-        <!-- Leaderboard -->
-        <section id="leaderboard" class="cyberpunk-section">
+        <section id="leaderboard">
             <h2>Leaderboard</h2>
-            <ul id="leaderboard-list">
-                <li>1. Jordan - 500000 MRC</li>
-                <li>2. Peter - 40500 MRC</li>
-                <li>3. Lyra - 40000 MRC</li>
-            </ul>
         </section>
-    
+
+        <nav>
+            <button>Wallet</button>
+            <button>Airdrop</button>
+            <button>Task</button>
+            <button>Games</button>
+        </nav>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
